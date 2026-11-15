@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#131312">
+  <title>Deko Dad | DEKO</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/chat.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="/" dir="ltr" aria-label="DEKO">DEKO</a>
+    <div class="top-actions">
+      <a id="staff-link" class="quiet nav-link" href="/staff" data-i18n="staffTitle" hidden>پنل تیم دکو</a>
+      <button id="language" class="quiet" type="button" aria-label="English" lang="en">EN</button>
+      <button id="close-widget" class="quiet" type="button" data-i18n="close" hidden>بستن</button>
+    </div>
+  </header>
+  <main class="experience">
+    <section class="character" aria-labelledby="assistant-title">
+      <div class="character-art"><img src="/deko-dad.webp" width="700" height="700" data-alt="mascot" alt="ربات مشکی‌طلایی Deko Dad"></div>
+      <div class="character-name">
+        <h1 id="assistant-title" dir="ltr">Deko Dad</h1>
+        <p data-i18n="tagline">دستیار بازار دکو و همسر Deko Mom</p>
+      </div>
+    </section>
+    <section class="chat panel" aria-labelledby="chat-title">
+      <header class="chat-head">
+        <div class="identity">
+          <div class="avatar"><img src="/deko-dad.webp" alt="" width="53" height="53"></div>
+          <div><h2 id="chat-title" data-i18n="askDeko">از دکو بپرس</h2><p id="chat-status" class="subtle" data-i18n="assistantLabel">دستیار بازار دکو</p></div>
+        </div>
+        <button id="support" class="support-button" type="button" data-i18n="support">پشتیبانی مستقیم</button>
+      </header>
+      <div class="chat-controls">
+        <div class="switcher" role="group" data-aria="chooseRole" aria-label="نوع گفت‌وگو">
+          <button class="role" data-role="customer" type="button" aria-pressed="true" data-i18n="customerChoice">مشتری‌ام</button>
+          <button class="role" data-role="seller" type="button" aria-pressed="false" data-i18n="sellerChoice">فروشنده‌ام</button>
+        </div>
+        <button id="reset" type="button" class="text-button" data-i18n="newChat" hidden>گفت‌وگوی تازه</button>
+      </div>
+      <div id="messages" class="messages" role="log" aria-live="polite" data-aria="chatMessages" aria-label="پیام‌های گفت‌وگو" tabindex="0"></div>
+      <div id="suggestions" class="suggestions"></div>
+      <form id="message-form" class="composer">
+        <label for="message-input" class="sr-only" data-i18n="message">پیام</label>
+        <textarea id="message-input" rows="1" maxlength="2000" dir="auto" data-placeholder="messagePlaceholder" placeholder="پیامت رو بنویس…" required></textarea>
+        <button id="send" class="primary" type="submit" data-i18n="send">ارسال</button>
+      </form>
+      <p id="chat-notice" class="form-note subtle" data-i18n="aiNotice" hidden>پیام‌های این بخش برای تولید پاسخ به OpenAI فرستاده می‌شن.</p>
+      <p id="chat-error" class="form-note error" role="status" hidden></p>
+      <footer id="social" class="social" hidden>
+        <span data-i18n="official">دکو در شبکه‌های اجتماعی</span>
+        <div id="social-links" class="social-links"></div>
+      </footer>
+    </section>
+  </main>
+  <dialog id="support-dialog" aria-labelledby="support-title">
+    <div class="dialog-body">
+      <h2 id="support-title" data-i18n="supportTitle">گفت‌وگو با تیم دکو</h2>
+      <p data-i18n="handoffNote">تیم دکو پیام‌های همین گفت‌وگو رو می‌بینه. جوابشون همین‌جا نمایش داده می‌شه.</p>
+      <p id="support-error" class="error" role="status" hidden></p>
+      <div class="dialog-actions">
+        <button id="confirm-support" class="primary" type="button" data-i18n="requestSupport">ارسال به پشتیبانی</button>
+        <form method="dialog"><button class="quiet" data-i18n="cancel">انصراف</button></form>
+      </div>
+    </div>
+  </dialog>
+</body>
+</html>

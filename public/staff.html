@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#131312">
+  <title>DEKO Team</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/staff.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="/" dir="ltr" aria-label="DEKO">DEKO</a>
+    <div class="top-actions">
+      <a class="quiet nav-link" href="/" data-i18n="backToChat">برگشت به چت</a>
+      <button id="language" class="quiet" type="button" aria-label="English" lang="en">EN</button>
+      <button id="logout" class="quiet" type="button" data-i18n="signOut" hidden>خروج</button>
+    </div>
+  </header>
+  <main class="staff-shell">
+    <form id="login" class="panel login" hidden>
+      <h1 data-i18n="signIn">ورود تیم دکو</h1>
+      <label for="team-password" data-i18n="passwordLabel">رمز تیم</label>
+      <input id="team-password" type="password" autocomplete="current-password" required>
+      <button id="login-action" class="primary" type="submit" data-i18n="signIn">ورود تیم دکو</button>
+      <p id="login-notice" class="error" role="status" hidden></p>
+    </form>
+    <section id="desk" hidden>
+      <header class="desk-header">
+        <h1 data-i18n="staffTitle">پنل تیم دکو</h1>
+        <nav class="switcher" aria-label="DEKO team">
+          <button id="show-inbox" type="button" class="role" aria-pressed="true" data-i18n="inbox">پشتیبانی</button>
+          <button id="show-settings" type="button" class="role" aria-pressed="false" data-i18n="settingsTab">تنظیمات دستیار</button>
+        </nav>
+      </header>
+      <p id="desk-notice" class="error" role="status" hidden></p>
+      <section id="inbox" class="inbox">
+        <aside class="panel queue" aria-labelledby="queue-title">
+          <h2 id="queue-title" data-i18n="supportQueue">صندوق پشتیبانی</h2>
+          <ul id="case-list" class="case-list"></ul>
+          <p id="empty-queue" class="subtle" data-i18n="emptyQueue" hidden>هنوز درخواستی وارد صندوق نشده.</p>
+        </aside>
+        <section class="panel staff-chat" aria-labelledby="thread-title">
+          <header class="chat-head">
+            <div><h2 id="thread-title" data-i18n="readThread">گفت‌وگوی پشتیبانی</h2><p id="thread-status" class="subtle"></p></div>
+            <button id="close-thread" class="quiet" type="button" data-i18n="closeThread" hidden>پایان گفت‌وگو</button>
+          </header>
+          <div id="thread-messages" class="messages" role="log" aria-live="polite" tabindex="0" data-aria="chatMessages" aria-label="پیام‌های گفت‌وگو"></div>
+          <form id="reply-form" class="composer" hidden>
+            <label for="reply" class="sr-only" data-i18n="message">پیام</label>
+            <textarea id="reply" rows="1" dir="auto" maxlength="2000" data-placeholder="writeReply" placeholder="پاسخ تیم رو بنویس…" required></textarea>
+            <button class="primary" type="submit" id="reply-send" data-i18n="send">ارسال</button>
+          </form>
+        </section>
+      </section>
+      <form id="settings" class="panel settings" hidden>
+        <fieldset>
+          <legend data-i18n="channels">لینک‌های رسمی دکو</legend>
+          <p class="subtle" data-i18n="linksHelp">آدرس کامل صفحه یا پیام‌رسان رو وارد کن. فیلد خالی در چت نمایش داده نمی‌شه.</p>
+          <div class="link-fields">
+            <label data-i18n="instagram" for="instagram">اینستاگرام</label><input id="instagram" type="url" dir="ltr" maxlength="800" autocomplete="off" placeholder="https://www.instagram.com/…">
+            <label data-i18n="facebook" for="facebook">فیسبوک</label><input id="facebook" type="url" dir="ltr" maxlength="800" autocomplete="off" placeholder="https://www.facebook.com/…">
+            <label data-i18n="telegram" for="telegram">تلگرام</label><input id="telegram" type="url" dir="ltr" maxlength="800" autocomplete="off" placeholder="https://t.me/…">
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="knowledge">اطلاعات تأییدشدهٔ دکو</legend>
+          <p class="subtle" id="knowledge-hint" data-i18n="knowledgeHelp">شرایط ارسال، مرجوعی، همکاری و ثبت‌نام فروشنده رو اینجا وارد کن.</p>
+          <textarea id="knowledge" rows="5" dir="auto" maxlength="16000" aria-labelledby="knowledge-hint"></textarea>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="catalog">کاتالوگ محصولات (JSON)</legend>
+          <p class="subtle" id="catalog-hint" data-i18n="catalogHelp">اطلاعات کاتالوگ به دستیار برای پیشنهاد کالا کمک می‌کنه. ساختار فایل در راهنمای نصب آمده.</p>
+          <textarea id="catalog" rows="5" dir="ltr" spellcheck="false" aria-labelledby="catalog-hint"></textarea>
+        </fieldset>
+        <div class="dialog-actions">
+          <button class="primary" id="save" type="submit" data-i18n="save">ذخیره تغییرات</button>
+          <button class="quiet" id="reload-settings" type="button" data-i18n="reloadSettings" hidden>بارگذاری تنظیمات فعلی</button>
+        </div>
+        <p id="settings-notice" class="form-note" role="status" hidden></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+data/
+dist/
+.sites-runtime/
+node_modules/
+.dev.vars
+.dev.vars.*
+.wrangler/
+wrangler.generated.json

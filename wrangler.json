@@ -1,0 +1,11 @@
+{
+  "name": "deko-dad",
+  "main": "dist/server/index.mjs",
+  "compatibility_date": "2026-11-15",
+  "workers_dev": true,
+  "preview_urls": false,
+  "triggers": { "crons": ["*/2 * * * *"] },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "deko-dad", "migrations_dir": "drizzle" }
+  ]
+}

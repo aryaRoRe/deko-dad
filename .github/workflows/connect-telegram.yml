@@ -1,0 +1,20 @@
+name: Connect Telegram
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  webhook:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: npm run telegram:connect
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_WEBHOOK_SECRET: ${{ secrets.TELEGRAM_WEBHOOK_SECRET }}
+          DEKO_PUBLIC_ORIGIN: ${{ vars.DEKO_PUBLIC_ORIGIN }}
